@@ -4,7 +4,7 @@
     <pv-card class="login-card" style="width: 500px">
       <template #header>
         <figure class="main_figure">
-          <img src="\img\inicio.webp" class="main_img" alt="Inicio de sesión" />
+          <img src="/img/inicio.webp" class="main_img" alt="Inicio de sesión" />
         </figure>
       </template>
 
@@ -20,7 +20,7 @@
         <form @submit.prevent="validateUser" class="main_form">
           <input type="text" placeholder="Ingrese Usuario" class="main_input" v-model="username" />
           <input type="password" placeholder="Ingrese Contraseña" class="main_input" v-model="password" />
-          <input type="submit" value="Inicio Sesion" class="main_input main_input--send" />
+          <input type="submit" value="Iniciar Sesión" class="main_input main_input--send" />
         </form>
       </template>
     </pv-card>
@@ -29,6 +29,7 @@
 
 <script>
 import { UsersService } from "../services/users.service.js";
+import { EventBus} from "../assets/eventBus.js";
 
 export default {
   name: 'login-component',
@@ -36,7 +37,7 @@ export default {
     return {
       username: '',
       password: '',
-      usersService: new UsersService(),  // Servicio de usuarios
+      usersService: new UsersService(),
     };
   },
   methods: {
@@ -55,10 +56,10 @@ export default {
         );
 
         if (validUser) {
-          // Redirigir al home si es válido
-          this.$router.push('/home');
+          // Emitir el evento logueado con el usuario válido
+          EventBus.emit('user-logged-in', validUser);
+          this.$router.push('/home');  // Redirigir al home
         } else {
-          // Mostrar alerta si el usuario o contraseña no son válidos
           alert('Usuario o contraseña incorrectos');
         }
       }).catch(error => {

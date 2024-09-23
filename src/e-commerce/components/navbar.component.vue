@@ -10,7 +10,7 @@
 
       <template #end>
         <div class="flex items-center space-x-4">
-          <pv-button class="bg-[#1e293b] text-white">
+          <pv-button class="bg-[#1e293b] text-white" @click="goToCart">
             <i class="pi pi-shopping-cart mx-3"></i>
             <a class="text-white">Cart</a>
           </pv-button>
@@ -39,6 +39,9 @@ export default {
     },
     goToHome() {
       this.$router.push('/home');
+    },
+    goToCart() {
+      this.$router.push('/cart');
     }
   }
 }

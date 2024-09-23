@@ -10,4 +10,8 @@ export class ProductsService {
     getProducts() {
         return http.get('/products');
     }
+
+    getProductById(productId) {
+        return http.get(`/products/${productId}`);
+    }
 }

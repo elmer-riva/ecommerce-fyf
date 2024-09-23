@@ -12,6 +12,7 @@
     "@primevue/themes": "^4.0.7",
     "axios": "^1.7.7",
     "icons": "^1.0.0",
+    "mitt": "^3.0.1",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.7",
     "vue": "^3.4.37",
