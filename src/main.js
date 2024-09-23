@@ -11,11 +11,14 @@ import InputText from "primevue/inputtext"
 import SplitButton from "primevue/splitbutton"
 import 'primeicons/primeicons.css'
 import Button from "primevue/button"
+import router from "./router/index.js";
 
 
 const app = createApp(App)
 
 app.use(PrimeVue, {unstyled: true});
+
+app.use(router);
 
 app.component('pv-card', Card)
     .component('pv-toolbar', Toolbar)

@@ -1,17 +1,11 @@
-<script>
-export default {
-  name: "navbar.component.vue"
-}
-
-//bg-[#ff5733]
-</script>
 <template>
   <div>
-
     <pv-toolbar class="w-full bg-[#1e293b] shadow-md fixed top-0 left-0 flex items-center justify-between p-4">
 
       <template #start>
+        <pv-button @click="goToHome">
         <p class="text-lg text-white font-bold">Flora Y Fauna</p>
+        </pv-button>
       </template>
 
       <template #end>
@@ -21,9 +15,9 @@ export default {
             <a class="text-white">Cart</a>
           </pv-button>
 
-          <pv-button class="bg-[#1e293b] text-white">
+          <pv-button class="bg-[#1e293b] text-white" @click="goToLogin">
             <i class="pi pi-sign-in mx-3"></i>
-            <a class="text-white mr-5">Log In</a>
+            <span class="text-white mr-5">Log In</span>
           </pv-button>
 
           <pv-button class="bg-[#059669] text-white rounded-lg text-lg px-6 py-3">
@@ -32,11 +26,24 @@ export default {
         </div>
       </template>
     </pv-toolbar>
-
   </div>
 </template>
 
+<script>
+
+export default {
+  name: "navbar-component",
+  methods: {
+    goToLogin() {
+      this.$router.push('/login');
+    },
+    goToHome() {
+      this.$router.push('/home');
+    }
+  }
+}
+</script>
 
 <style scoped>
-
+/* Estilos opcionales */
 </style>

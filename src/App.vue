@@ -1,12 +1,10 @@
 <script setup>
-import navbarComponent from "./e-commerce/components/navbar.component.vue";
-import itemComponent from "./e-commerce/components/itemlist.component.vue";
 
+import Home from "./views/home.vue";
 </script>
 
 <template>
-  <navbarComponent></navbarComponent>
-  <itemComponent></itemComponent>
+  <router-view></router-view>
 </template>
 
 <style scoped>
